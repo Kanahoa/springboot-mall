@@ -1,5 +1,6 @@
 package com.pengchu.springbootmall.rowmapper;
 
+import com.pengchu.springbootmall.constant.ProductCategory;
 import com.pengchu.springbootmall.model.Product;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -11,15 +12,22 @@ public class ProductRowMapper implements RowMapper<Product> {
     public Product mapRow(ResultSet resultSet, int i) throws SQLException {
         Product product = new Product();
 
-        product.setProductId(resultSet.getInt("productId"));
-        product.setProductName(resultSet.getString("productName"));
-        product.setCatrgory(resultSet.getString("category"));
-        product.setImageUrl(resultSet.getString("imageUrl"));
+        product.setProductId(resultSet.getInt("product_id"));
+        product.setProductName(resultSet.getString("product_name"));
+
+        String categoryStr = resultSet.getString("category");
+        ProductCategory category = ProductCategory.valueOf(categoryStr);
+        product.setCategory(category);
+
+//        Product.setCategory(ProductCategory.valueOf(resultSet.getString("category")));
+
+        product.setImageUrl(resultSet.getString("image_url"));
         product.setPrice(resultSet.getInt("price"));
         product.setStock(resultSet.getInt("stock"));
-        product.setDecription(resultSet.getString("description"));
-        product.setCreatedDate(resultSet.getTimestamp("createdDate"));
-        product.setLastModifiedDate(resultSet.getTimestamp("lastModifiedDate"));
+        product.setDescription(resultSet.getString("description"));
+        product.setCreatedDate(resultSet.getTimestamp("created_date"));
+        product.setLastModifiedDate(resultSet.getTimestamp("lastModified_date"));
+
 
         return product;
     }

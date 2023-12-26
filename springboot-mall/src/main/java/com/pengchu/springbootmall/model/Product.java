@@ -1,16 +1,18 @@
 package com.pengchu.springbootmall.model;
 
 
+import com.pengchu.springbootmall.constant.ProductCategory;
+
 import java.util.Date;
 
 public class Product {
     private Integer productId;
     private String productName;
-    private String catrgory;
+    private ProductCategory category;
     private String imageUrl;
     private Integer price;
     private Integer stock;
-    private String decription;
+    private String description;
     private Date createdDate;
     private Date lastModifiedDate;
 
@@ -30,12 +32,12 @@ public class Product {
         this.productName = productName;
     }
 
-    public String getCatrgory() {
-        return catrgory;
+    public ProductCategory getCategory() {
+        return category;
     }
 
-    public void setCatrgory(String catrgory) {
-        this.catrgory = catrgory;
+    public void setCategory(ProductCategory category) {
+        this.category = category;
     }
 
     public String getImageUrl() {
@@ -62,12 +64,12 @@ public class Product {
         this.stock = stock;
     }
 
-    public String getDecription() {
-        return decription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDecription(String decription) {
-        this.decription = decription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Date getCreatedDate() {

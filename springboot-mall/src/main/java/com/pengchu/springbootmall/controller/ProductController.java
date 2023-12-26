@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductController {
    @Autowired
    private ProductService productService;
-    @GetMapping("/product/{productId}")
+    @GetMapping("/products/{productId}")
     public ResponseEntity<Product>getProduct(@PathVariable Integer productId){
         Product product = productService.getProductById(productId);
 

@@ -1,6 +1,7 @@
 package com.pengchu.springbootmall.service.impl;
 
 import com.pengchu.springbootmall.dao.ProductDao;
+import com.pengchu.springbootmall.dto.ProductRequest;
 import com.pengchu.springbootmall.model.Product;
 import com.pengchu.springbootmall.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,12 +9,18 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ProductServiceImpl implements ProductService {
-   @Autowired
+    @Autowired
     private ProductDao productDao;
+
     @Override
     public Product getProductById(Integer productId) {
 
         return productDao.getProductById(productId);
+    }
+
+    @Override
+    public Integer createProduct(ProductRequest productRequest) {
+        return productDao.createProduct(productRequest);
     }
 }
 
